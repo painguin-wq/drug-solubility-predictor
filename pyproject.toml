@@ -1,0 +1,31 @@
+[project]
+name = "drug-solubility-ml"
+version = "0.1.0"
+description = "ML-прогнозирование растворимости лекарств на основе BigSolDB"
+authors = [{name = "Alina Kanaeva alina.chem@mail.ru"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10,<3.12"
+dependencies = [
+    "pandas>=2.3.2",
+    "numpy>=1.24",
+    "matplotlib>=3.7",
+    "seaborn>=0.13",
+    "scikit-learn>=1.5",
+    "rdkit>=2023.0",
+    "openpyxl>=3.1",
+    "xgboost (>=3.0.4,<4.0.0)",
+    "lightgbm (>=4.6.0,<5.0.0)",
+]
+
+[project.scripts]
+solubility-run = "src.main:main"
+train = "src.train:main"
+predict = "src.predict:main"
+
+[tool.poetry]
+packages = [{ include = "src", from = "." }]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
